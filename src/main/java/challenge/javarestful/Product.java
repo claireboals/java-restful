@@ -6,12 +6,15 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 class Product {
     private @Id @GeneratedValue Long id;
     private String name;
     private String description;
+
+    @OneToMany(targetEntity=Album.class)
     private List<Album> albums;
 
     Product() {}

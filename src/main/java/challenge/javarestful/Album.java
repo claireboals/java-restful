@@ -6,17 +6,19 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 class Album {
     private @Id @GeneratedValue Long id;
     private String description;
+
+    @OneToMany(targetEntity=Image.class)
     private List<Image> images;
 
     Album() {}
 
     Album(String name, String description, List<Image> images){
-        this.name = name;
         this.description = description;
         this.images = images;
     }
