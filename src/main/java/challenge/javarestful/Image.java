@@ -2,11 +2,12 @@ package challenge.javarestful;
 
 import java.util.Objects;
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 @Entity
 class Image {
@@ -14,15 +15,14 @@ class Image {
     private String title;
     private String description;
 
-    @OneToMany(targetEntity=Album.class)
-    private List<Album> albums;
+    @ManyToMany(targetEntity=Album.class)
+    private List<Album> albums = new ArrayList<Album>();
 
     Image() {}
 
-    Image(String title, String description, List<Album> albums){
+    Image(String title, String description){
         this.title = title;
         this.description = description;
-        this.albums = albums;
     }
 
     // getters
@@ -55,7 +55,7 @@ class Image {
         this.description = description;
     }
 
-    public void setAlbums(List<Album> albums){
-        this.albums = albums;
+    public void setAlbum(Album album){
+        this.albums.add(album);
     }
 }

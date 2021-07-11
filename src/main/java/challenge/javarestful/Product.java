@@ -2,6 +2,7 @@ package challenge.javarestful;
 
 import java.util.Objects;
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,14 +16,13 @@ class Product {
     private String description;
 
     @OneToMany(targetEntity=Album.class)
-    private List<Album> albums;
+    private List<Album> albums = new ArrayList<Album>();
 
     Product() {}
 
-    Product(String name, String description, List<Album> albums){
+    Product(String name, String description){
         this.name = name;
         this.description = description;
-        this.albums = albums;
     }
 
     // getters
