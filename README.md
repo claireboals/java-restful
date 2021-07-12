@@ -18,15 +18,21 @@ Endpoints:
 ```
 GET /products - returns all products
 
+GET /products/{id} - returns product with id if it exists
+
 POST /products - create a new product
 ```
 ```
 GET /albums - returns all albums
 
+GET /albums/{id} - returns album with id if it exists
+
 POST /albums - create a new album
 ```
 ```
 GET /images - returns all images
+
+GET /images/{id} - returns image with id if it exists
 
 POST /images - create a new image
 ```
