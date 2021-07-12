@@ -26,7 +26,7 @@ class ProductController {
     }
 
     // create a new product
-    @PostMapping("/products")
+    @PostMapping(path="/products", consumes="application/json", produces="application/json")
     Product newProduct(@RequestBody Product newProduct){
         return repository.save(newProduct);
     }
