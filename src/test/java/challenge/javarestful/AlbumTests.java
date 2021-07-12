@@ -41,16 +41,6 @@ public class AlbumTests {
             .andExpect(status().isOk());
     }
 
-    // @Test
-    // public void postTestWithImage() throws Exception {
-    //     this.mockMvc.perform((post("/albums"))
-    //         .content(asJsonString(new Album("i-have-one-image", new Image("test-album-image", "im-an-image"))))
-    //         .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
-    //         .accept(org.springframework.http.MediaType.APPLICATION_JSON))
-    //         .andDo(print())
-    //         .andExpect(status().isOk());
-    // }
-
     public static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);
