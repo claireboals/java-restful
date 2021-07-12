@@ -35,9 +35,10 @@ public class ProductTests {
     @Test
     public void postTest() throws Exception {
         this.mockMvc.perform((post("/products"))
-            .content(asJsonString(new Product("test-name", "test-description", new Album())))
+            .content(asJsonString(new Product("test-product-name", "test-product-description")))
             .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
             .accept(org.springframework.http.MediaType.APPLICATION_JSON))
+            .andDo(print())
             .andExpect(status().isOk());
     }
 
