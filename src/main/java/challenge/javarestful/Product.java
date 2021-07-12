@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 class Product {
@@ -15,14 +15,15 @@ class Product {
     private String name;
     private String description;
 
-    @OneToMany(targetEntity=Album.class)
-    private List<Album> albums = new ArrayList<Album>();
+    @OneToOne
+    private Album album;
 
     Product() {}
 
-    Product(String name, String description){
+    Product(String name, String description, Album album){
         this.name = name;
         this.description = description;
+        this.album = album;
     }
 
     // getters
@@ -38,8 +39,8 @@ class Product {
         return this.description;
     }
 
-    public List<Album> getAlbums(){
-        return this.albums;
+    public Album getAlbum(){
+        return this.album;
     }
 
     // setters
@@ -55,7 +56,7 @@ class Product {
         this.description = description;
     }
 
-    public void setAlbums(List<Album> albums){
-        this.albums = albums;
+    public void setAlbum(Album album){
+        this.album = album;
     }
 }
