@@ -1,4 +1,6 @@
 # Code Challenge: Java RESTful Web Service
+Java RESTful web service made using Spring Boot with data persistence using JPA and H2.
+
 
 Build and run the project:
 ```
