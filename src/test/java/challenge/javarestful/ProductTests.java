@@ -27,7 +27,7 @@ public class ProductTests {
     /*** Success test: GET all products ***/
 	@Test
 	public void getAllTestSuccess() throws Exception {
-		this.mockMvc.perform(get("/products")
+	    this.mockMvc.perform(get("/products")
             .accept(org.springframework.http.MediaType.APPLICATION_JSON))
             .andDo(print())
             .andExpect(status().isOk());
