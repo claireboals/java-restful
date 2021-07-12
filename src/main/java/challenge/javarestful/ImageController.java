@@ -25,6 +25,13 @@ class ImageController {
         return repository.findAll();
     }
 
+    // GET image by id
+    @GetMapping("/images/{id}")
+    Image one(@PathVariable Long id){
+        return repository.findById(id)
+        .orElseThrow(() -> new EntityNotFoundException(id));
+    }
+
     // create a new image
     @PostMapping(path="/images", consumes="application/json", produces="application/json")
     Image newImage(@RequestBody Image newImage){
