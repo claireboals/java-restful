@@ -25,6 +25,18 @@ class Image {
         this.description = description;
     }
 
+    Image(String title, String description, Album album){
+        this.title = title;
+        this.description = description;
+        this.albums.add(album);
+    }
+
+    Image(String title, String description, List<Album> albums){
+        this.title = title;
+        this.description = description;
+        this.albums = albums;
+    }
+
     // getters
     public Long getId(){
         return this.id;

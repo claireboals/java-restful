@@ -29,6 +29,11 @@ class Album {
         this.images.add(image);
     }
 
+    Album(String description, List<Image> images){
+        this.description = description;
+        this.images = images;
+    }
+
     // getters
     public Long getId(){
         return this.id;

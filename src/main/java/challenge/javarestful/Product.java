@@ -25,6 +25,12 @@ class Product {
         this.description = description;
     }
 
+    Product(String name, String description, Album album){
+        this.name = name;
+        this.description = description;
+        this.album = album;
+    }
+
     // getters
     public Long getId(){
         return this.id;
