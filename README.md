@@ -13,19 +13,19 @@ Run the tests:
 ```
 
 Endpoints:
-
+```
 GET /products - returns all products
 
 POST /products - create a new product
-
-
+```
+```
 GET /albums - returns all albums
 
 POST /albums - create a new album
-
-
+```
+```
 GET /images - returns all images
 
 POST /images - create a new image
-
+```
 
