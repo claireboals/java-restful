@@ -28,8 +28,7 @@ public class ProductTests {
 		this.mockMvc.perform(get("/products")
             .accept(org.springframework.http.MediaType.APPLICATION_JSON))
             .andDo(print())
-            .andExpect(status().isOk())
-			.andExpect(content().string(containsString("[]")));
+            .andExpect(status().isOk());
 	}
 
     @Test
