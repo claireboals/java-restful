@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 class ProductController {
     
@@ -19,13 +20,20 @@ class ProductController {
         this.repository = repository;
     }
 
-    // gets all products
+    // GET all products
     @GetMapping("/products")
     List<Product> all(){
         return repository.findAll();
     }
 
-    // create a new product
+    // GET product by id
+    @GetMapping("/products/{id}")
+    Product one(@PathVariable Long id){
+        return repository.findById(id)
+        .orElseThrow(() -> new EntityNotFoundException(id));
+    }
+
+    // POST a new product
     @PostMapping(path="/products", consumes="application/json", produces="application/json")
     Product newProduct(@RequestBody Product newProduct){
         return repository.save(newProduct);
