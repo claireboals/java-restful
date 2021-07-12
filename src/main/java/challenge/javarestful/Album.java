@@ -7,20 +7,26 @@ import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ElementCollection;
 
 @Entity
 class Album {
     private @Id @GeneratedValue Long id;
     private String description;
 
-    @ManyToMany(targetEntity=Image.class)
+
+    @ElementCollection
     private List<Image> images = new ArrayList<Image>();
 
     Album() {}
 
     Album(String description){
         this.description = description;
+    }
+
+    Album(String description, Image image){
+        this.description = description;
+        this.images.add(image);
     }
 
     // getters
@@ -45,7 +51,7 @@ class Album {
         this.description = description;
     }
 
-    public void setImages(Image image){
-        this.images.add(image);
+    public void setImages(List<Image> images){
+        this.images = images;
     }
 }

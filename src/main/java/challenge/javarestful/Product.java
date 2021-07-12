@@ -20,10 +20,9 @@ class Product {
 
     Product() {}
 
-    Product(String name, String description, Album album){
+    Product(String name, String description){
         this.name = name;
         this.description = description;
-        this.album = album;
     }
 
     // getters

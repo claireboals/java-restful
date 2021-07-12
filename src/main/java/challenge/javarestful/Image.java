@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ElementCollection;
 
 @Entity
 class Image {
@@ -15,7 +15,7 @@ class Image {
     private String title;
     private String description;
 
-    @ManyToMany(targetEntity=Album.class)
+    @ElementCollection
     private List<Album> albums = new ArrayList<Album>();
 
     Image() {}
@@ -55,7 +55,7 @@ class Image {
         this.description = description;
     }
 
-    public void setAlbum(Album album){
-        this.albums.add(album);
+    public void setAlbums(List<Album> albums){
+        this.albums = albums;
     }
 }
