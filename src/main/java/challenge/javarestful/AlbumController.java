@@ -25,6 +25,13 @@ class AlbumController {
         return repository.findAll();
     }
 
+    // GET album by id
+    @GetMapping("/albums/{id}")
+    Album one(@PathVariable Long id){
+        return repository.findById(id)
+        .orElseThrow(() -> new EntityNotFoundException(id));
+    }
+
     // create a new album
     @PostMapping(path="/albums", consumes="application/json", produces="application/json")
     Album newAlbum(@RequestBody Album newAlbum){
